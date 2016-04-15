@@ -1,0 +1,25 @@
+<div class = "container" >
+	<h3>Add_New_catagory</h3>
+	<%= form_for @catagory do |f| %> <!-- form for catagory-->
+		<div class = "form-group " >
+			<%= f.label :name, class:"control-label " %>
+			<%= f.text_field :name ,class:"form-control"%>
+		</div>
+		
+		<div class="form-group">
+		    <%= f.submit "save",class: "btn btn-primary" %>
+		</div>  
+	<% end %>
+</div>	
+<% if @catagory.errors.any? %>
+  <div id="error_explanation">
+     <%= pluralize(@catagory.errors.count, "error") %> Prohibited
+     <ul class= "well well-sm" >
+     <% @catagory.errors.full_messages.each do |m| %>
+      </ul>
+      <li><%= m %></li>
+     <% end %>
+     </ul>
+  </div>
+<% end %>
+

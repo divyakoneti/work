@@ -1,0 +1,10 @@
+
+<% @users.each do |user| %>
+<strong>userid:</strong>
+<%= user.id %></br>
+<strong>Email:</strong>
+<%= user.email %></br>
+
+<p><%= link_to 'show',user_path(user.id)%> 
+<%=link_to 'edit',edit_user_path(user.id) %></p>
+<% end %>

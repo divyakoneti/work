@@ -1,0 +1,34 @@
+<div class = "container" >
+<h3><center>Total Categories </center></h3>
+	<table class="table table-striped table-hover table-bordered">  
+		<tr>
+			<th>CatagoryName</th>
+		    <th>BooksCount</th>
+			<th>action1</th>
+			<th>action2</th>
+			<th>action3</th>
+			
+		</tr>
+		
+		
+		<% @catagories.each do |catagory| %>
+
+			<tr class="textcolor">
+
+				<td><%= link_to catagory.name ,catagory_path(catagory.id)%></td>
+				<td><%= catagory.books.count %>
+				 <% if current_user.role=="admin" %>
+
+				   
+                    <td><%= link_to "show",catagory_path(catagory.id),class: "btn btn-info"%></td>
+				    <td><%= link_to "edit",edit_catagory_path(catagory),class: "btn btn-info"%></td>
+				    <td><%= link_to "delete",catagory_path(catagory.id),method: :delete,data: { confirm: "are you sure to delete "},class:"btn btn-info" %></td>
+				 <% else %>
+				      <td> <%= link_to "book" %></td>
+				 <% end %>
+				   
+			</tr>
+			    <% end %>
+		
+	</table>
+</div>

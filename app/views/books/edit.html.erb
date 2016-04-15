@@ -1,0 +1,20 @@
+<div class = "container" >
+	<h3>Edit_book</h3>
+	<%= form_for @book do |f| %>
+		
+
+		<div class = "form-group " >
+			<%= f.label :Catagory, class:"control-label " %>
+			<%= select("book", "catagory_id", @catagories.collect {|c| [ c.name, c.id ] },:include_blank => "Please select" , class: "form-control") %>
+		</div>
+		<div class = "form-group " >
+			<%= f.label :Name, class:"control-label " %>:
+			<%= f.text_field :book_title , class: "form-control" %>
+		</div>
+		<div>
+		    <%= f.submit "edit" ,class:"btn btn-primary" %>
+		</div>
+	<% end %>	
+</div>
+
+		        

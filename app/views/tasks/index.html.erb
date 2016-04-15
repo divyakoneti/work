@@ -1,0 +1,38 @@
+<style>
+  .textcolor{color:green;}
+  .align{text-align:center;}
+</style>
+
+<center><h2 class="text-danger">TotalTasks</h2></center>
+<!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+<div class="container">
+
+  
+    <div class="table">
+      <table class="table table-striped table-hover table-bordered">  
+        <tr class="info">
+          <th class="align">Description </th>
+          <th class="align">Deadline</th>
+          <th class= "align">action1</th>
+          <th class= "align">action1</th>
+        </tr>  
+        
+          
+
+   
+    <% @tasks.each do |task| %>
+      <tr>
+      <td><%= task.description %> </td>
+      <td><%= task.deadline %></td>
+      <td><%= link_to 'edit',edit_task_path(task),remote: true %></td>
+      <td><%= link_to 'delete',task ,remote: true, method: :delete,  data: { confirm: 'Are you sure?' } %></td>
+     
+     <div id="task-form" style="display:none;"></div> <!-- div tag for new form -->
+     <div id="tasks"><%= render @tasks %></div><!-- here goto the index page -->
+   <% end %>
+   <%= link_to 'New Task', new_task_path, remote: true ,class: "btn btn-primary"%>
+</tr>
+</table>
+</div>
+</div>
+
